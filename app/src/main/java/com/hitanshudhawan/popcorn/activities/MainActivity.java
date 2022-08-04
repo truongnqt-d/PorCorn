@@ -5,13 +5,15 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -26,11 +28,10 @@ import com.hitanshudhawan.popcorn.fragments.TVShowsFragment;
 import com.hitanshudhawan.popcorn.utils.Constants;
 import com.hitanshudhawan.popcorn.utils.NetworkConnection;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
-    private DrawerLayout mDrawer;
-    private NavigationView mNavigationView;
-
+    private BottomNavigationView bottomNavigationView;
+    private int itemId;
     private boolean doubleBackToExitPressedOnce;
 
     @Override
@@ -46,45 +47,46 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             sharedPreferencesEditor.apply();
         }
 
+        initUi();
+        initListener();
+        setFragment(new MoviesFragment());
+    }
+
+    private void initUi() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        mDrawer.setDrawerListener(toggle);
-        toggle.syncState();
+        bottomNavigationView = findViewById(R.id.nav_view);
+        bottomNavigationView.getMenu().findItem(R.id.nav_movies).setChecked(true);
+    }
 
-        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-        mNavigationView.setNavigationItemSelectedListener(MainActivity.this);
-
-        mNavigationView.setCheckedItem(R.id.nav_movies);
-        setTitle(R.string.movies);
-        setFragment(new MoviesFragment());
+    private void initListener() {
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                itemId =  item.getItemId();
+                return menuItem(true);
+            }
+        });
     }
 
     @Override
     public void onBackPressed() {
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
-            mDrawer.closeDrawer(GravityCompat.START);
-        } else {
-
-            if (doubleBackToExitPressedOnce) {
-                super.onBackPressed();
-                return;
-            }
-
-            doubleBackToExitPressedOnce = true;
-            Toast.makeText(this, R.string.press_again_to_exit, Toast.LENGTH_SHORT).show();
-
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    doubleBackToExitPressedOnce = false;
-                }
-            }, 2000);
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
         }
+
+        doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, R.string.press_again_to_exit, Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
+
     }
 
     @Override
@@ -123,13 +125,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return false;
     }
 
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawer.closeDrawer(GravityCompat.START);
+    public boolean menuItem(boolean menuItem) {
 
-        switch (id) {
+        switch (itemId) {
             case R.id.nav_movies:
                 setTitle(R.string.movies);
                 setFragment(new MoviesFragment());
@@ -147,8 +145,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 return false;
         }
-
-        return false;
+        return menuItem;
     }
 
     private void setFragment(Fragment fragment) {

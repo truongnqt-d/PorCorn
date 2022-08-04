@@ -86,7 +86,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="8dp"
             android:src="@mipmap/ic_favorite_border_black_18dp"
-            android:tint="@android:color/darker_gray" />
+            app:tint="@android:color/darker_gray" />
 
 
     </LinearLayout>

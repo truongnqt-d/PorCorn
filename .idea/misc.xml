@@ -3,6 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/drawable-anydpi/ic_test.xml" value="0.152" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/drawable/cursor.xml" value="0.176" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/drawable/gradient_background.xml" value="0.1665" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/drawable/gradient_background_btnvgt.xml" value="0.1435" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/drawable/ic_notification_background.xml" value="0.152" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/layout/activity_about.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/layout/activity_movie_detail.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/layout/activity_search.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/layout/activity_view_all_tvshows.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/layout/app_bar_main.xml" value="0.30480072463768115" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/layout/content_main.xml" value="0.30480072463768115" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/layout/content_search.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/layout/fragment_movies.xml" value="0.2033514492753623" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/layout/item_show_large.xml" value="0.32518115942028986" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/menu/main.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProjects/popcorn/app/src/main/res/mipmap-anydpi-v26/ic_notification.xml" value="0.152" />
         <entry key="..\:/Workspace/PopCorn-master/app/src/main/res/layout/activity_main.xml" value="0.3546875" />
         <entry key="..\:/Workspace/PopCorn-master/app/src/main/res/layout/app_bar_main.xml" value="0.3546875" />
         <entry key="..\:/Workspace/PopCorn-master/app/src/main/res/layout/content_main.xml" value="0.3546875" />
