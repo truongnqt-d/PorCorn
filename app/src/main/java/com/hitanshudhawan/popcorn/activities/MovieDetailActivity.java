@@ -92,8 +92,7 @@ public class MovieDetailActivity extends AppCompatActivity {
     private List<Video> mTrailers;
     private VideoAdapter mTrailerAdapter;
 
-    private View mHorizontalLine;
-
+    private View mHorizontalLine;///////////////////////
     private TextView mCastTextView;
     private RecyclerView mCastRecyclerView;
     private List<MovieCastBrief> mCasts;

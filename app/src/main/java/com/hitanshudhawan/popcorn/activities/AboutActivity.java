@@ -37,7 +37,8 @@ public class AboutActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+	/////aaaaaaa
+	////bbbd
         setTitle(R.string.about);
 
         featureGraphicImageView = (ImageView) findViewById(R.id.image_view_feature_graphic_about);
